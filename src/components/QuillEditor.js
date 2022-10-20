@@ -5,7 +5,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./QuillEditor.css";
 
-const QuillEditor = ({ handleChange, value }) => {
+const QuillEditor = ({ HandleChange, value }) => {
   const modules = {
     toolbar: [
       // [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -34,16 +34,21 @@ const QuillEditor = ({ handleChange, value }) => {
     "link",
     // "image",
   ];
+  const handleChange = (e) => {
+    console.log(e);
+    HandleChange(e);
+  };
 
   return (
     // <CAccordion>
-    <div className="textEditorContainer">
+    <div className="textEditorContainer" onMouseEnter={console.log("hii")}>
       <ReactQuill
         theme="snow"
         modules={modules}
         formats={formats}
         value={value}
         onChange={handleChange}
+        onFocus={console.log("hello")}
       ></ReactQuill>
     </div>
     // </CAccordion>
